@@ -2,8 +2,6 @@
 
 This package does some [CPF](http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas)/[CNPJ](http://en.wikipedia.org/wiki/CNPJ) magic. It allows you to create, validate and format CPF/CNPJ.
 
-[![Code Climate](https://codeclimate.com/github/fnando/cpf_cnpj.js.png)](https://codeclimate.com/github/fnando/cpf_cnpj.js)
-
 ## Installation
 
 Using bower:
