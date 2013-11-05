@@ -20,7 +20,7 @@
 
     var sum = reverse.reduce(function(buffer, number) {
       buffer += number * index;
-      index = index == 9 ? 2 : index + 1;
+      index = (index === 9 ? 2 : index + 1);
       return buffer;
     }, 0);
 
