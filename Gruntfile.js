@@ -4,7 +4,20 @@ module.exports = function(grunt) {
       "grunt-contrib-concat"
     , "grunt-contrib-uglify"
     , "grunt-contrib-copy"
+    , "grunt-contrib-jshint"
   ];
+
+  //==========================================================
+
+  config.jshint = {};
+
+  config.jshint.dist = {
+      options: {jshintrc: true}
+
+    , files: {
+        src: ["lib/**/*.js"]
+      }
+  };
 
   //==========================================================
 
@@ -49,5 +62,5 @@ module.exports = function(grunt) {
 
   grunt.initConfig(config);
   tasks.forEach(grunt.loadNpmTasks);
-  grunt.registerTask("default", ["concat", "copy", "uglify"]);
+  grunt.registerTask("default", ["jshint", "concat", "copy", "uglify"]);
 };
