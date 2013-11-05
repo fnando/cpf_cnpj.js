@@ -33,13 +33,13 @@ describe("CNPJ", function() {
   });
 
   it("returns stripped number", function() {
-    var number = cnpj.build("54550[752#0001..$55");
-    expect(number.stripped()).to.eql("54550752000155");
+    var number = cnpj.strip("54550[752#0001..$55");
+    expect(number).to.eql("54550752000155");
   });
 
   it("returns formatted number", function() {
-    var number = cnpj.build("54550752000155");
-    expect(number.formatted()).to.eql("54.550.752/0001-55");
+    var number = cnpj.format("54550752000155");
+    expect(number).to.eql("54.550.752/0001-55");
   });
 
   it("generates formatted number", function() {

@@ -33,20 +33,18 @@
     return (mod < 2 ? 0 : 11 - mod);
   };
 
-  var CPF = function(number){
-    this.number = number;
+  var CPF = {};
+
+  CPF.format = function(number) {
+    return this.strip(number).replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
   };
 
-  CPF.prototype.stripped = function() {
-    return CPF.strip(this.number);
+  CPF.strip = function(number) {
+    return (number || "").toString().replace(/[^\d]/g, "");
   };
 
-  CPF.prototype.formatted = function() {
-    return CPF.format(this.stripped());
-  };
-
-  CPF.prototype.isValid = function() {
-    var stripped = this.stripped();
+  CPF.isValid = function(number) {
+    var stripped = this.strip(number);
 
     // CPF must be defined
     if (!stripped) { return false; }
@@ -62,18 +60,6 @@
     numbers += verifierDigit(numbers);
 
     return numbers.substr(-2) === stripped.substr(-2);
-  };
-
-  CPF.format = function(number) {
-    return this.strip(number).replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
-  };
-
-  CPF.strip = function(number) {
-    return (number || "").toString().replace(/[^\d]/g, "");
-  };
-
-  CPF.isValid = function(number) {
-    return (new CPF(number)).isValid();
   };
 
   CPF.generate = function(formatted) {
@@ -130,20 +116,18 @@
     return (mod < 2 ? 0 : 11 - mod);
   };
 
-  var CNPJ = function(number){
-    this.number = number;
+  var CNPJ = {};
+
+  CNPJ.format = function(number) {
+    return this.strip(number).replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
   };
 
-  CNPJ.prototype.stripped = function() {
-    return CNPJ.strip(this.number);
+  CNPJ.strip = function(number) {
+    return (number || "").toString().replace(/[^\d]/g, "");
   };
 
-  CNPJ.prototype.formatted = function() {
-    return CNPJ.format(this.stripped());
-  };
-
-  CNPJ.prototype.isValid = function() {
-    var stripped = this.stripped();
+  CNPJ.isValid = function(number) {
+    var stripped = this.strip(number);
 
     // CNPJ must be defined
     if (!stripped) { return false; }
@@ -159,18 +143,6 @@
     numbers += verifierDigit(numbers);
 
     return numbers.substr(-2) === stripped.substr(-2);
-  };
-
-  CNPJ.format = function(number) {
-    return this.strip(number).replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
-  };
-
-  CNPJ.strip = function(number) {
-    return (number || "").toString().replace(/[^\d]/g, "");
-  };
-
-  CNPJ.isValid = function(number) {
-    return (new CNPJ(number)).isValid();
   };
 
   CNPJ.generate = function(formatted) {

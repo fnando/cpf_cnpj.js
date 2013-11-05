@@ -34,13 +34,13 @@ describe("CPF", function() {
   });
 
   it("returns stripped number", function() {
-    var number = cpf.build("295.379.955-93");
-    expect(number.stripped()).to.eql("29537995593");
+    var number = cpf.strip("295.379.955-93");
+    expect(number).to.eql("29537995593");
   });
 
   it("returns formatted number", function() {
-    var number = cpf.build("29537995593");
-    expect(number.formatted()).to.eql("295.379.955-93");
+    var number = cpf.format("29537995593");
+    expect(number).to.eql("295.379.955-93");
   });
 
   it("generates formatted number", function() {
