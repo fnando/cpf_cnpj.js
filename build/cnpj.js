@@ -70,10 +70,6 @@
     return (formatted ? this.format(numbers) : numbers);
   };
 
-  CNPJ.build = function(number) {
-    return new CNPJ(number);
-  };
-
   if (commonjs) {
     module.exports = CNPJ;
   } else {

@@ -75,10 +75,6 @@
     return (formatted ? this.format(numbers) : numbers);
   };
 
-  CPF.build = function(number) {
-    return new CPF(number);
-  };
-
   if (commonjs) {
     module.exports = CPF;
   } else {
@@ -156,10 +152,6 @@
     numbers += verifierDigit(numbers);
 
     return (formatted ? this.format(numbers) : numbers);
-  };
-
-  CNPJ.build = function(number) {
-    return new CNPJ(number);
   };
 
   if (commonjs) {

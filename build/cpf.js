@@ -75,10 +75,6 @@
     return (formatted ? this.format(numbers) : numbers);
   };
 
-  CPF.build = function(number) {
-    return new CPF(number);
-  };
-
   if (commonjs) {
     module.exports = CPF;
   } else {
