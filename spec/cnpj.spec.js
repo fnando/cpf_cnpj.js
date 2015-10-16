@@ -55,4 +55,45 @@ describe("CNPJ", function() {
     expect(number).to.match(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/);
     expect(cnpj.isValid(number)).to.be.ok;
   });
+
+  it("should be possible to pass CNPJ.strip as parameter to other function", function (done) {
+    var executeStrip = function (strip) {
+      var number = strip("54550[752#0001..$55");
+      expect(number).to.eql("54550752000155");
+      done();
+    };
+
+    executeStrip(cnpj.strip);
+  });
+
+  it("should be possible to pass CNPJ.format as parameter to other function", function (done) {
+    var executeFormat = function (format) {
+      var number = format("54550752000155");
+      expect(number).to.eql("54.550.752/0001-55");
+      done();
+    };
+
+    executeFormat(cnpj.format);
+  });
+
+  it("should be possible to pass CPF.isValid as parameter to other function", function (done) {
+    var executeIsValid = function (isValid) {
+      expect(isValid("54.550.752/0001-55")).to.be.ok;
+      done();
+    };
+
+    executeIsValid(cnpj.isValid);
+  });
+
+  it("should be possible to pass CPF.generate as parameter to other function", function (done) {
+    var executeGenerate = function (generate) {
+      var number = generate(true);
+
+      expect(number).to.match(/^(\d{2}).(\d{3}).(\d{3})\/(\d{4})-(\d{2})$/);
+      expect(cnpj.isValid(number)).to.be.ok;
+      done();
+    };
+
+    executeGenerate(cnpj.generate);
+  });
 });
