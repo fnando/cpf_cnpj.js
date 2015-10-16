@@ -56,4 +56,45 @@ describe("CPF", function() {
     expect(number).to.match(/^\d{3}\d{3}\d{3}\d{2}$/);
     expect(cpf.isValid(number)).to.be.ok;
   });
+
+  it("should be possible to pass CPF.strip as parameter to other function", function (done) {
+    var executeStrip = function (strip) {
+      var number = strip("295.379.955-93");
+      expect(number).to.eql("29537995593");
+      done();
+    };
+
+    executeStrip(cpf.strip);
+  });
+
+  it("should be possible to pass CPF.format as parameter to other function", function (done) {
+    var executeFormat = function (format) {
+      var number = format("29537995593");
+      expect(number).to.eql("295.379.955-93");
+      done();
+    };
+
+    executeFormat(cpf.format);
+  });
+
+  it("should be possible to pass CPF.isValid as parameter to other function", function (done) {
+    var executeIsValid = function (isValid) {
+      expect(isValid("295.379.955-93")).to.be.ok;
+      done();
+    };
+
+    executeIsValid(cpf.isValid);
+  });
+
+  it("should be possible to pass CPF.generate as parameter to other function", function (done) {
+    var executeGenerate = function (generate) {
+      var number = generate(true);
+
+      expect(number).to.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/);
+      expect(cpf.isValid(number)).to.be.ok;
+      done();
+    };
+
+    executeGenerate(cpf.generate);
+  });
 });
