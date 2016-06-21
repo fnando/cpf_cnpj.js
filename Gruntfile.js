@@ -1,10 +1,10 @@
 module.exports = function(grunt) {
   var config = {};
   var tasks = [
-      "grunt-contrib-concat"
-    , "grunt-contrib-uglify"
-    , "grunt-contrib-copy"
-    , "grunt-contrib-jshint"
+    "grunt-contrib-concat",
+    "grunt-contrib-uglify",
+    "grunt-contrib-copy",
+    "grunt-contrib-jshint"
   ];
 
   //==========================================================
@@ -12,11 +12,11 @@ module.exports = function(grunt) {
   config.jshint = {};
 
   config.jshint.dist = {
-      options: {jshintrc: true}
+    options: {jshintrc: true},
 
-    , files: {
-        src: ["lib/**/*.js"]
-      }
+    files: {
+      src: ["lib/**/*.js"]
+    }
   };
 
   //==========================================================
@@ -25,8 +25,8 @@ module.exports = function(grunt) {
 
   config.copy.all = {
     files: [
-        {src: "lib/cnpj.js", dest: "build/cnpj.js"}
-      , {src: "lib/cpf.js", dest: "build/cpf.js"}
+      {src: "lib/cnpj.js", dest: "build/cnpj.js"},
+      {src: "lib/cpf.js", dest: "build/cpf.js"}
     ]
   };
 
@@ -35,8 +35,8 @@ module.exports = function(grunt) {
   config.concat = {};
 
   config.concat.bundle = {
-      src: ["lib/cpf.js", "lib/cnpj.js"]
-    , dest: "build/cpf_cnpj.js"
+    src: ["lib/cpf.js", "lib/cnpj.js"],
+    dest: "build/cpf_cnpj.js"
   };
 
   //==========================================================
@@ -44,18 +44,18 @@ module.exports = function(grunt) {
   config.uglify = {};
 
   config.uglify.cnpj = {
-      src: "build/cnpj.js"
-    , dest: "build/cnpj.min.js"
+    src: "build/cnpj.js",
+    dest: "build/cnpj.min.js"
   };
 
   config.uglify.cpf = {
-      src: "build/cpf.js"
-    , dest: "build/cpf.min.js"
+    src: "build/cpf.js",
+    dest: "build/cpf.min.js"
   };
 
   config.uglify.cpf_cnpj = {
-      src: "build/cpf_cnpj.js"
-    , dest: "build/cpf_cnpj.min.js"
+    src: "build/cpf_cnpj.js",
+    dest: "build/cpf_cnpj.min.js"
   };
 
   //==========================================================

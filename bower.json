@@ -14,15 +14,15 @@
   "license": "MIT",
   "homepage": "http://github.com/fnando/cpf_cnpj.js",
   "ignore": [
-      "**/.*"
-    , "node_modules"
-    , "bower_components"
-    , "test"
-    , "tests"
-    , "spec"
-    , "lib"
-    , "Gruntfile.js"
-    , "package.json"
-    , "index.js"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec",
+    "lib",
+    "Gruntfile.js",
+    "package.json",
+    "index.js"
   ]
 }

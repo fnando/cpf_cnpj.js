@@ -3,6 +3,7 @@ var expect = require("chai").expect;
 
 describe("CPF", function() {
   it("blacklists common numbers", function() {
+    expect(cpf.isValid("00000000000")).not.to.be.ok;
     expect(cpf.isValid("11111111111")).not.to.be.ok;
     expect(cpf.isValid("22222222222")).not.to.be.ok;
     expect(cpf.isValid("33333333333")).not.to.be.ok;

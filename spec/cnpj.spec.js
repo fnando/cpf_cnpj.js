@@ -3,6 +3,7 @@ var expect = require("chai").expect;
 
 describe("CNPJ", function() {
   it("blacklists common numbers", function() {
+    expect(cnpj.isValid("00000000000000")).not.to.be.ok
     expect(cnpj.isValid("11111111111111")).not.to.be.ok
     expect(cnpj.isValid("22222222222222")).not.to.be.ok
     expect(cnpj.isValid("33333333333333")).not.to.be.ok
