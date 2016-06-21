@@ -1,6 +1,6 @@
 {
   "name": "cpf_cnpj",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Validate, generate and format CPF/CNPJ numbers",
   "main": "index.js",
   "scripts": {
