@@ -3,16 +3,16 @@ var expect = require("chai").expect;
 
 describe("CNPJ", function() {
   it("blacklists common numbers", function() {
-    expect(cnpj.isValid("00000000000000")).not.to.be.ok
-    expect(cnpj.isValid("11111111111111")).not.to.be.ok
-    expect(cnpj.isValid("22222222222222")).not.to.be.ok
-    expect(cnpj.isValid("33333333333333")).not.to.be.ok
-    expect(cnpj.isValid("44444444444444")).not.to.be.ok
-    expect(cnpj.isValid("55555555555555")).not.to.be.ok
-    expect(cnpj.isValid("66666666666666")).not.to.be.ok
-    expect(cnpj.isValid("77777777777777")).not.to.be.ok
-    expect(cnpj.isValid("88888888888888")).not.to.be.ok
-    expect(cnpj.isValid("99999999999999")).not.to.be.ok
+    expect(cnpj.isValid("00000000000000")).not.to.be.ok;
+    expect(cnpj.isValid("11111111111111")).not.to.be.ok;
+    expect(cnpj.isValid("22222222222222")).not.to.be.ok;
+    expect(cnpj.isValid("33333333333333")).not.to.be.ok;
+    expect(cnpj.isValid("44444444444444")).not.to.be.ok;
+    expect(cnpj.isValid("55555555555555")).not.to.be.ok;
+    expect(cnpj.isValid("66666666666666")).not.to.be.ok;
+    expect(cnpj.isValid("77777777777777")).not.to.be.ok;
+    expect(cnpj.isValid("88888888888888")).not.to.be.ok;
+    expect(cnpj.isValid("99999999999999")).not.to.be.ok;
   });
 
   it("rejects falsy values", function() {
