@@ -1,5 +1,7 @@
 # CPF/CNPJ
 
+[![Build Status](https://travis-ci.org/fnando/cpf_cnpj.js.svg?branch=master)](https://travis-ci.org/fnando/cpf_cnpj.js)
+
 This package does some [CPF](http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas)/[CNPJ](http://en.wikipedia.org/wiki/CNPJ) magic. It allows you to create, validate and format CPF/CNPJ.
 
 ## Installation
