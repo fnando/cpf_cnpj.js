@@ -13,6 +13,9 @@
     "99999999999999"
   ];
 
+  var STRICT_STRIP_REGEX = /[-\/.]/g;
+  var LOOSE_STRIP_REGEX = /[^\d]/g;
+
   var verifierDigit = function(numbers) {
     var index = 2;
     var reverse = numbers.split("").reduce(function(buffer, number) {
@@ -35,12 +38,13 @@
     return this.strip(number).replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
   };
 
-  CNPJ.strip = function(number) {
-    return (number || "").toString().replace(/[^\d]/g, "");
+  CNPJ.strip = function(number, strict) {
+    var regex = strict ? STRICT_STRIP_REGEX : LOOSE_STRIP_REGEX;
+    return (number || "").toString().replace(regex, "");
   };
 
-  CNPJ.isValid = function(number) {
-    var stripped = this.strip(number);
+  CNPJ.isValid = function(number, strict) {
+    var stripped = this.strip(number, strict);
 
     // CNPJ must be defined
     if (!stripped) { return false; }
