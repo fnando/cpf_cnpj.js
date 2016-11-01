@@ -4,22 +4,22 @@ module.exports = function(grunt) {
     "grunt-contrib-concat",
     "grunt-contrib-uglify",
     "grunt-contrib-copy",
-    "grunt-contrib-jshint"
+    "gruntify-eslint"
   ];
 
-  //==========================================================
+  // ==========================================================
 
-  config.jshint = {};
+  config.eslint = {};
 
-  config.jshint.dist = {
-    options: {jshintrc: true},
+  config.eslint.dist = {
+    options: {configFile: ".eslintrc"},
 
     files: {
-      src: ["lib/**/*.js"]
+      src: ["lib/**/*.js", "spec/**/*.js"]
     }
   };
 
-  //==========================================================
+  // ==========================================================
 
   config.copy = {};
 
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     ]
   };
 
-  //==========================================================
+  // ==========================================================
 
   config.concat = {};
 
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     dest: "build/cpf_cnpj.js"
   };
 
-  //==========================================================
+  // ==========================================================
 
   config.uglify = {};
 
@@ -58,9 +58,9 @@ module.exports = function(grunt) {
     dest: "build/cpf_cnpj.min.js"
   };
 
-  //==========================================================
+  // ==========================================================
 
   grunt.initConfig(config);
   tasks.forEach(grunt.loadNpmTasks);
-  grunt.registerTask("default", ["jshint", "concat", "copy", "uglify"]);
+  grunt.registerTask("default", ["eslint", "concat", "copy", "uglify"]);
 };
