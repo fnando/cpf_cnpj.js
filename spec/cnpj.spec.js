@@ -33,6 +33,12 @@ describe("CNPJ", function() {
     expect(cnpj.isValid("54550[752#0001..$55")).to.be.ok;
   });
 
+  it("strictly validates strings", function() {
+    expect(cnpj.isValid("54550[752#0001..$55", true)).not.to.be.ok;
+    expect(cnpj.isValid("54.550.752/0001-55", true)).to.be.ok;
+    expect(cnpj.isValid("54550752000155", true)).to.be.ok;
+  });
+
   it("returns stripped number", function() {
     var number = cnpj.strip("54550[752#0001..$55");
     expect(number).to.eql("54550752000155");

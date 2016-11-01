@@ -14,41 +14,69 @@ Using NPM:
 
 ## Usage
 
-    // Node.js-specific
-    var CPF = require("cpf_cnpj").CPF;
-    var CNPJ = require("cpf_cnpj").CNPJ;
+```js
+// Node.js-specific
+var CPF = require("cpf_cnpj").CPF;
+var CNPJ = require("cpf_cnpj").CNPJ;
 
-    CPF.isValid("532.820.857-96");
-    //=> true
+CPF.isValid("532.820.857-96");
+//=> true
 
-    CPF.strip("532.820.857-96");
-    //=> 53282085796
+CPF.strip("532.820.857-96");
+//=> 53282085796
 
-    CPF.format("53282085796");
-    //=> 532.820.857-96
+CPF.format("53282085796");
+//=> 532.820.857-96
 
-    CPF.generate(true); // generate formatted number
-    //=> 838.684.734-40
+CPF.generate(true); // generate formatted number
+//=> 838.684.734-40
 
-    CPF.generate(); // generate unformatted number
-    //=> 72777632898
+CPF.generate(); // generate unformatted number
+//=> 72777632898
 
-    //==========================================================
+//==========================================================
 
-    CNPJ.isValid("41.381.074/6738-65");
-    //=> true
+CNPJ.isValid("41.381.074/6738-65");
+//=> true
 
-    CNPJ.strip("41.381.074/6738-65");
-    //=> 41381074673865
+CNPJ.strip("41.381.074/6738-65");
+//=> 41381074673865
 
-    CNPJ.format("41381074673865");
-    //=> 41.381.074/6738-65
+CNPJ.format("41381074673865");
+//=> 41.381.074/6738-65
 
-    CNPJ.generate(true); // generate formatted number
-    //=> 54.385.406/3140-07
+CNPJ.generate(true); // generate formatted number
+//=> 54.385.406/3140-07
 
-    CNPJ.generate(); // generate unformatted number
-    //=> 07033324230766
+CNPJ.generate(); // generate unformatted number
+//=> 07033324230766
+```
+
+### Strict Validation
+
+By default, validations will strip any characters you provide. This means that the following is valid, because only numbers will be considered:
+
+```js
+CNPJ.isValid("41#381#074-----6738\n\n65");
+//=> true
+
+CNPJ.strip("41#381#074-----6738\n\n65");
+//=> 41381074673865
+```
+
+If you want to strict validate strings, use the following signature:
+
+```js
+CPF.isValid(number, strict);
+CNPJ.isValid(number, strict);
+```
+
+The same example would now return `false`:
+
+```js
+CNPJ.isValid("41#381#074-----6738\n\n65", true);
+//=> false
+```
 
 ## Contributing
 
