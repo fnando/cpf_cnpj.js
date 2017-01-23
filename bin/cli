@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+"use strict";
+
+var program = require("commander");
+var cpfcnpj = require("..");
+var ncp = require("copy-paste");
+
+program
+    .usage("[options]")
+    .option("-f, --cpf", "gera um CPF válido")
+    .option("-j, --cnpj", "gera um CNPJ válido")
+    .parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
+
+if (program.cpf) {
+  var cpf = cpfcnpj.CPF.generate();
+  console.log(cpf);
+  ncp.copy(cpf);
+}
+
+if (program.cnpj) {
+  var cnpj = cpfcnpj.CNPJ.generate();
+  console.log(cnpj);
+  ncp.copy(cnpj);
+}
