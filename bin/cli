@@ -10,6 +10,8 @@ program
     .usage("[options]")
     .option("-f, --cpf", "gera um CPF válido")
     .option("-j, --cnpj", "gera um CNPJ válido")
+    .option("-v, --verify_cpf [cpf]", "verifica um CPF")
+    .option("-V, --verify_cnpj [cnpj]", "verifica um CNPJ")
     .parse(process.argv);
 
 if (!process.argv.slice(2).length) {
@@ -26,4 +28,12 @@ if (program.cnpj) {
   var cnpj = cpfcnpj.CNPJ.generate();
   console.log(cnpj);
   ncp.copy(cnpj);
+}
+
+if (program.verify_cpf) {
+  console.log(cpfcnpj.CPF.isValid(program.verify_cpf) ? "Válido" : "Inválido");
+}
+
+if (program.verify_cnpj) {
+  console.log(cpfcnpj.CNPJ.isValid(program.verify_cnpj) ? "Válido" : "Inválido");
 }
