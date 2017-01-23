@@ -82,6 +82,8 @@ CNPJ.isValid("41#381#074-----6738\n\n65", true);
 
 ## Command Line Utility
 
+If installed with `npm install -g` a script is available at command line.
+
 ```
 Usage: cpfcnpj [options]
 
