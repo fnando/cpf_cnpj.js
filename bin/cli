@@ -2,9 +2,9 @@
 
 "use strict";
 
-var program = require("commander");
-var cpfcnpj = require("..");
-var ncp = require("copy-paste");
+const program = require("commander");
+const cpfcnpj = require("..");
+const clipboardy = require('clipboardy');
 
 program
     .usage("[options]")
@@ -23,13 +23,13 @@ if (!process.argv.slice(2).length) {
 if (program.cpf) {
   var cpf = cpfcnpj.CPF.generate();
   console.log(cpf);
-  ncp.copy(cpf);
+  clipboardy.writeSync(cpf);
 }
 
 if (program.cnpj) {
   var cnpj = cpfcnpj.CNPJ.generate();
   console.log(cnpj);
-  ncp.copy(cnpj);
+  clipboardy.writeSync(cnpj);
 }
 
 if (program.verify_cpf) {
