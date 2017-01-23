@@ -8,11 +8,13 @@ var ncp = require("copy-paste");
 
 program
     .usage("[options]")
-    .option("-f, --cpf", "gera um CPF válido")
-    .option("-j, --cnpj", "gera um CNPJ válido")
-    .option("-v, --verify_cpf [cpf]", "verifica um CPF")
-    .option("-V, --verify_cnpj [cnpj]", "verifica um CNPJ")
+    .option("-f, --cpf", "generate a CPF number")
+    .option("-j, --cnpj", "generate a CNPJ number")
+    .option("-v, --verify_cpf [cpf]", "verify CPF given as argument")
+    .option("-V, --verify_cnpj [cnpj]", "verify CNPJ given as argument")
     .parse(process.argv);
+
+program._name = "cpfcnpj";
 
 if (!process.argv.slice(2).length) {
   program.outputHelp();
@@ -31,9 +33,9 @@ if (program.cnpj) {
 }
 
 if (program.verify_cpf) {
-  console.log(cpfcnpj.CPF.isValid(program.verify_cpf) ? "Válido" : "Inválido");
+  console.log(cpfcnpj.CPF.isValid(program.verify_cpf) ? "Valid" : "Invalid");
 }
 
 if (program.verify_cnpj) {
-  console.log(cpfcnpj.CNPJ.isValid(program.verify_cnpj) ? "Válido" : "Inválido");
+  console.log(cpfcnpj.CNPJ.isValid(program.verify_cnpj) ? "Valid" : "Invalid");
 }

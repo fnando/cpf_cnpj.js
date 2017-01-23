@@ -80,6 +80,21 @@ CNPJ.isValid("41#381#074-----6738\n\n65", true);
 //=> false
 ```
 
+## Command Line Utility
+
+```
+Usage: cpfcnpj [options]
+
+  Options:
+
+    -h, --help                output usage information
+    -f, --cpf                 generate a CPF number
+    -j, --cnpj                generate a CNPJ number
+    -v, --verify_cpf [cpf]    verify CPF given as argument
+    -V, --verify_cnpj [cnpj]  verify CNPJ given as argument
+```
+The generated number is copied to system clipboard after generation.
+
 ## Contributing
 
 1. Fork it
