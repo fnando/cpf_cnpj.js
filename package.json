@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha spec"
   },
+  "bin": {
+    "cpfcnpj": "bin/cli"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/fnando/cpf_cnpj.js.git"
@@ -28,5 +31,9 @@
     "grunt-contrib-uglify": "^2.0.0",
     "gruntify-eslint": "^3.1.0",
     "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "clipboardy": "0.1.2",
+    "commander": "^2.9.0"
   }
 }
