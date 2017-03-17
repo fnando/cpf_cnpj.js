@@ -24,6 +24,9 @@ var CNPJ = require("cpf_cnpj").CNPJ;
 CPF.isValid("532.820.857-96");
 //=> true
 
+CPF.isValid("53282085796");
+//=> true
+
 CPF.strip("532.820.857-96");
 //=> 53282085796
 
