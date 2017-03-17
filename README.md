@@ -41,6 +41,9 @@ CPF.generate(); // generate unformatted number
 CNPJ.isValid("41.381.074/6738-65");
 //=> true
 
+CNPJ.isValid("41381074673865");
+//=> true
+
 CNPJ.strip("41.381.074/6738-65");
 //=> 41381074673865
 
